@@ -1,0 +1,12 @@
+package com.example.kino1;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Kino1Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Kino1Application.class, args);
+	}
+}
