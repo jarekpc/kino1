@@ -15,7 +15,7 @@ public class Bilet {
     private int id_widz;
     private int id_seans;
     private String type;
-    //
+
     @ManyToOne
     @JoinColumn(name = "id_widz",insertable=false, updatable=false)
     public Widz getWidz;
