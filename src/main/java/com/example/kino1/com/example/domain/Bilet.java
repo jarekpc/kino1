@@ -1,31 +1,30 @@
 package com.example.kino1.com.example.domain;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@RequiredArgsConstructor
 public class Bilet {
 
     @Id
     @SequenceGenerator(name="bilet_generator", sequenceName="bilet_sequence", allocationSize = 1)
     @GeneratedValue(generator = "bilet_generator")
     private int id;
-    private int id_widz;
-    private int id_seans;
-    private String type;
 
-    @ManyToOne
-    @JoinColumn(name = "id_widz",insertable=false, updatable=false)
-    public Widz getWidz;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type")
+    private Type type;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_kasjer")
+    private Kasjer kasjer;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_seans",insertable=false, updatable=false)
-    private Seans seans;
-    /*
     @OneToOne(mappedBy = "bilet")
     private Cena cena;
-    */
+
+
 }

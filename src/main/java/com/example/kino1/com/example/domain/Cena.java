@@ -14,9 +14,9 @@ public class Cena {
     @GeneratedValue(generator = "cena_generator")
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_bilet")
-    private Bilet id_bilet;
+    private Bilet bilet;
 
     private BigDecimal koszt;
 
