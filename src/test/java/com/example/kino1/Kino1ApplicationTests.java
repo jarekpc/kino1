@@ -58,15 +58,16 @@ public class Kino1ApplicationTests {
 	@Test
 	public void checkKasjer(){
 		List<Kasjer> kasjers = (ArrayList<Kasjer>)kasjerRepository.findAll();
-		assertEquals(kasjers.size(),3);
+		assertEquals(kasjers.size(),4);
 	}
 
 	@Test
 	public void checkCena(){
 		List<Cena> cenas = (ArrayList<Cena>)cenaRepository.findAll();
-		assertEquals(cenas.size(),2);
+		assertEquals(cenas.size(),3);
 	}
 
+	@Test
 	public void checkSeans(){
 		List<Seans> seans = (ArrayList<Seans>)seansRepository.findAll();
 		assertEquals(seans.size(),2);
