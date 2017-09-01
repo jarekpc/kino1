@@ -1,14 +1,11 @@
 package com.example.kino1.com.example.domain;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@Data
 public class Film {
 
     @Id
@@ -18,4 +15,27 @@ public class Film {
 
     private String name;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Film(String name) {
+        this.name = name;
+    }
+
+    public Film(){
+
+    }
 }

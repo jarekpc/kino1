@@ -1,18 +1,12 @@
 package com.example.kino1.com.example.domain;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
-@Data
-@RequiredArgsConstructor
 public class Bilet {
 
     @Id
-    @SequenceGenerator(name="bilet_generator", sequenceName="bilet_sequence", allocationSize = 1)
-    @GeneratedValue(generator = "bilet_generator")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Enumerated(EnumType.STRING)
@@ -23,8 +17,36 @@ public class Bilet {
     @JoinColumn(name = "id_kasjer")
     private Kasjer kasjer;
 
-    @OneToOne(mappedBy = "bilet")
-    private Cena cena;
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Kasjer getKasjer() {
+        return kasjer;
+    }
+
+    public void setKasjer(Kasjer kasjer) {
+        this.kasjer = kasjer;
+    }
+
+    public Bilet(Type type, Kasjer kasjer) {
+        this.type = type;
+        this.kasjer = kasjer;
+    }
+
+    public Bilet(){
+
+    }
 }

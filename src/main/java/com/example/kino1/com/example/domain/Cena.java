@@ -1,23 +1,51 @@
 package com.example.kino1.com.example.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Data
 public class Cena {
 
     @Id
-    @SequenceGenerator(name="cena_generator", sequenceName="cena_sequence", allocationSize = 1)
-    @GeneratedValue(generator = "cena_generator")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_bilet")
     private Bilet bilet;
 
     private BigDecimal koszt;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Bilet getBilet() {
+        return bilet;
+    }
+
+    public void setBilet(Bilet bilet) {
+        this.bilet = bilet;
+    }
+
+    public BigDecimal getKoszt() {
+        return koszt;
+    }
+
+    public void setKoszt(BigDecimal koszt) {
+        this.koszt = koszt;
+    }
+
+    public Cena(Bilet bilet, BigDecimal koszt) {
+        this.bilet = bilet;
+        this.koszt = koszt;
+    }
+
+    public Cena(){
+
+    }
 }
