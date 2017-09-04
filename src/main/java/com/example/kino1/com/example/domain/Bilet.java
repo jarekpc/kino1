@@ -1,8 +1,15 @@
 package com.example.kino1.com.example.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Bilet {
 
     @Id
@@ -17,36 +24,5 @@ public class Bilet {
     @JoinColumn(name = "id_kasjer")
     private Kasjer kasjer;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
-    public Kasjer getKasjer() {
-        return kasjer;
-    }
-
-    public void setKasjer(Kasjer kasjer) {
-        this.kasjer = kasjer;
-    }
-
-    public Bilet(Type type, Kasjer kasjer) {
-        this.type = type;
-        this.kasjer = kasjer;
-    }
-
-    public Bilet(){
-
-    }
 }
